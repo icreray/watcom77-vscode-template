@@ -7,8 +7,6 @@ A minimal build system template for Fortran 77 projects using Open Watcom compil
       - `.../watcom/binnt`
       - `.../watcom/binw`
    - Without this, you'll get: `'wfl386' is not recognized as an internal or external command`
-  - .../watcom/binnt and .../watcom/binw should be presented in the PATH
-  - Otherwise you will got `'wfl386' is not recognized as an internal or external command`
 3. Place project in a path that follows 8.3 naming rules:
    - Max 8 characters for folder names
    - Valid characters: ``A-Z 0-9 ! # $ % & ' ( ) - @ ^ _ ` { } ~``
