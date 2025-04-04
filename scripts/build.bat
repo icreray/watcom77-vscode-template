@@ -12,7 +12,7 @@ for %%f in (%PROJECT_DIR%\src\*.for) do (
     <nul set /p "=Compiling %%~nxf "
     wfl386 -c %%f -INCPath=%PROJECT_DIR%\src -fo=%PROJECT_DIR%\out\obj\%%~nxf.obj -Quiet > nul
     if errorlevel 1 (
-        echo - FAILED:
+        echo - Failed:
         type %%~nf.err
         del %%~nf.err
         exit /b 1
