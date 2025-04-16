@@ -6,9 +6,8 @@ for /f "delims=" %%A in ('cd') do (
 )
 set PROJECT_DIR=%cd%
 
-if not exist out\obj mkdir out\obj
-
 rmdir /s /q %PROJECT_DIR%\out\obj\
+mkdir out\obj
 
 for %%f in (%PROJECT_DIR%\src\*.for) do (
     <nul set /p "=Compiling %%~nxf "
