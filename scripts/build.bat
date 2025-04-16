@@ -8,6 +8,8 @@ set PROJECT_DIR=%cd%
 
 if not exist out\obj mkdir out\obj
 
+rmdir /s /q %PROJECT_DIR%\out\obj\
+
 for %%f in (%PROJECT_DIR%\src\*.for) do (
     <nul set /p "=Compiling %%~nxf "
     wfl386 -c %%f -INCPath=%PROJECT_DIR%\src -fo=%PROJECT_DIR%\out\obj\%%~nxf.obj -Quiet > nul
