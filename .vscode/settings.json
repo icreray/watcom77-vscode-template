@@ -1,5 +1,6 @@
 {
     "taskExplorer.exclude": [
       "scripts/*"
-    ]
+    ],
+    "problemMatchers.trace": "verbose"
 }
