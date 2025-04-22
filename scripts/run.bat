@@ -24,7 +24,7 @@ if not exist out\%filename%.exe (
 )
 
 set project_dir=%cd%
-cd reosurces
+cd resources
 %project_dir%/out/%filename%.exe
 
 endlocal
