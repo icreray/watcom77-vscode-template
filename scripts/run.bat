@@ -23,7 +23,8 @@ if not exist out\%filename%.exe (
     exit /b 1
 )
 
-cd out
-%PROJECT_NAME%.exe
+set project_dir=%cd%
+cd reosurces
+%project_dir%/out/%filename%.exe
 
 endlocal
