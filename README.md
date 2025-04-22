@@ -17,6 +17,7 @@ A minimal *'build system'* template for Fortran 77 projects using Open Watcom co
 project_root/
 ├── .vscode/   # VS Code configs (critical)
 ├── src/       # Your .for or .inc source files
+├── resources/ # Your resource files, .exe files will be executed here
 ├── out/       # Build outputs (auto-created)
 └── scripts/   # Build scripts (don't call them manually, use .vscode tasks instead)
 ```
