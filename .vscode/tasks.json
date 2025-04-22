@@ -9,6 +9,7 @@
                 "kind": "build",
                 "isDefault": true
             },
+            "args": ["${file}"],
             "problemMatcher": [
                 {
                     "owner": "fortran",
@@ -51,6 +52,7 @@
             "label": "Run",
             "type": "shell",
             "command": "./scripts/run.bat",
+            "args": ["${file}"],
             "problemMatcher": [],
             "detail": "Run compiled application"
         }

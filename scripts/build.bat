@@ -1,37 +1,50 @@
 @echo off
 setlocal
 
-for /f "delims=" %%A in ('cd') do (
-    set PROJECT_NAME=%%~nxA
+if [%1]==[] (
+    echo Error: No file specified
+    echo Usage: %~nx0 filename.for
+    exit /b 1
 )
-set PROJECT_DIR=%cd%
+if not "%~x1"==".for" (
+    echo Error: File must have .for extension
+    exit /b 1
+)
+if not exist %1 (
+    echo Error: File not found: %1
+    exit /b 1
+)
+for %%A in (%~1) do (
+    set input_file=%%~fA
+    set filename=%%~nA
+)
+set project_dir=%cd%
 
-rmdir /s /q %PROJECT_DIR%\out\obj\
+rmdir /s /q %project_dir%\out\obj\
 mkdir out\obj
 
-for %%f in (%PROJECT_DIR%\src\*.for) do (
-    <nul set /p "=Compiling %%~nxf "
-    wfl386 -c %%f -INCPath=%PROJECT_DIR%\src -fo=%PROJECT_DIR%\out\obj\%%~nxf.obj -Quiet > nul
-    if errorlevel 1 (
-        echo - Failed:
-        type %%~nf.err
-        del %%~nf.err
-        exit /b 1
-    ) else (
-        echo - Done
-    )
-)
-
-<nul set /p "=Linking object files "
-wlink name %PROJECT_DIR%\out\%PROJECT_NAME%.exe file %PROJECT_DIR%\out\obj\*.obj > %PROJECT_DIR%\out\link.log
+<nul set /p "=Compiling %filename% "
+wfl386 -c %input_file% -INCPath=%project_dir%\src -fo=%project_dir%\out\obj\%filename%.obj -Quiet > nul
 if errorlevel 1 (
     echo - Failed:
-    type %PROJECT_DIR%\out\link.log
-    del %PROJECT_DIR%\out\link.log
+    type %filename%.err
+    del %filename%.err
     exit /b 1
 ) else (
     echo - Done
 )
-del %PROJECT_DIR%\out\link.log
+
+
+<nul set /p "=Linking object files "
+wlink name %project_dir%\out\%filename%.exe file %project_dir%\out\obj\%filename%.obj > %project_dir%\out\link.log
+if errorlevel 1 (
+    echo - Failed:
+    type %project_dir%\out\link.log
+    del %project_dir%\out\link.log
+    exit /b 1
+) else (
+    echo - Done
+)
+del %project_dir%\out\link.log
 
 endlocal

@@ -1,4 +1,4 @@
-A minimal build system template for Fortran 77 projects using Open Watcom compiler. Designed as a lightweight alternative to the Watcom IDE for simple academic projects.
+A minimal *'build system'* template for Fortran 77 projects using Open Watcom compiler. Designed as a lightweight alternative to the Watcom IDE for simple academic projects.
 
 # Getting Started
 1. Install [Open Watcom F77](https://openwatcom.org/ftp/install/)
@@ -22,10 +22,9 @@ project_root/
 ```
 # Usage
 ## Building
-- Press `Ctrl+Shift+B`
+- Press `Ctrl+Shift+B` to build **curently open** `.for` file
 - Or go to `Terminal → Run Build Task`
 
 ## Running
-- `Terminal → Run Task... → Run`
-- Recommended: Install a [Task Explorer](https://marketplace.visualstudio.com/items?itemName=spmeesseman.vscode-taskexplorer) extension for easier access.
-
+- `Terminal → Run Task... → Run` to run **currently open** file
+- **Recommended:** Install a [Task Explorer](https://marketplace.visualstudio.com/items?itemName=spmeesseman.vscode-taskexplorer) extension for easier access.
