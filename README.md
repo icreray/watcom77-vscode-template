@@ -27,4 +27,5 @@ project_root/
 
 ## Running
 - `Terminal → Run Task... → Run` to run **currently open** file
+  - **IMPORTANT:** The program will execute relative to the /resources folder
 - **Recommended:** Install a [Task Explorer](https://marketplace.visualstudio.com/items?itemName=spmeesseman.vscode-taskexplorer) extension for easier access.
